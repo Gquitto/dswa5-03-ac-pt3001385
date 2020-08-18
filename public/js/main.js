@@ -1,4 +1,4 @@
-angular.module('ifsp', ['ngRoute']).config(function($routeProvider) {
+angular.module('ifsp', ['ngRoute']).config(function($routeProvider, $locationProvider) {
 		$routeProvider.when('/contatos', {
 		templateUrl: 'partials/contatos.html',
 		controller: 'ContatosController'
@@ -19,6 +19,11 @@ angular.module('ifsp', ['ngRoute']).config(function($routeProvider) {
     	controller: 'CursoController'
     });
 
-    $routeProvider.otherwise({redirectTo: '/contatos'});
+	$routeProvider.otherwise({redirectTo: '/contatos'});
+
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	});
 
 });
